@@ -1,0 +1,21 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+Debug/
+Release/
+x64/
+ipch/
+*.VC.db
+*.VC.opendb
+
+# 临时构建目录
+ConsoleA.*/
+
+# VS Code
+.vscode/
+
+# 其他
+*.log
