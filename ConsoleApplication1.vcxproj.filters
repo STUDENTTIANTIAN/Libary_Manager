@@ -21,6 +21,9 @@
     <ClCompile Include="mainwindow.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="event_handler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainwindow.h">
