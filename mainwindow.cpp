@@ -27,7 +27,27 @@ void MainWindow::recallAction(int action)
 
 
 }
-void MainWindow::load_user_data()
+int MainWindow::load_user_data()
 {
 	// Implement the logic to load user data here
+	std::ifstream file("data.txt");
+	std::string line;
+	if (!file.is_open())
+	{
+		std::cerr << "Failed to open data.txt" << std::endl;
+		return 1;
+	}
+	while (std::getline(file, line))
+	{
+		user_data data;
+		size_t pos = line.find("name:");
+		size_t start = pos + 5;
+		size_t end = line.find("pwd=");
+		data.name = line.substr(start, end - start);
+		pos = line.find("pwd=");
+		start = pos + 4;
+		data.password = line.substr(start);
+
+	}
+	return 1;
 }
