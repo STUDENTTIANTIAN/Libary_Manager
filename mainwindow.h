@@ -12,6 +12,7 @@ public:
     string getPwdpath();
     string returnfilepath();
     bool checkPassword();
+    void showMainwindow();
 private:
     struct user_data {
         string name;
