@@ -1,4 +1,5 @@
 ﻿#include "mainwindow.h"
+#include <direct.h>
 MainWindow::MainWindow()
 {
 }
@@ -50,4 +51,16 @@ int MainWindow::load_user_data()
 
 	}
 	return 1;
+}
+string MainWindow::getPwdpath()
+{
+	char buf[1024];
+	_getcwd(buf, 1024);
+	file_path = std::string(buf) + "\\data.txt";
+	return file_path;
+}
+string MainWindow::returnfilepath()
+{
+	getPwdpath();
+	return file_path;
 }
