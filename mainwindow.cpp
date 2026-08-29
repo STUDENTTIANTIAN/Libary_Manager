@@ -4,21 +4,50 @@ MainWindow::MainWindow()
 {
 }
 
-void MainWindow::show()
+void MainWindow::show(int showid)
 {
-	system("cls");
-	cout<<"******************************"<<endl;
-	cout<<"图书管理系统" << endl;
-	cout << "1登录" << endl;
-	cout << "2退出" << endl;
-	cout << "版权@天天工作室" << endl;
-	cout << "******************************" << endl;
+	switch (showid)
+	{
+	case 1:
+		system("cls");
+		cout << "******************************" << endl;
+		cout << "图书管理系统" << endl;
+		cout << "1登录" << endl;
+		cout << "2退出" << endl;
+		cout << "版权@天天工作室" << endl;
+		cout << "******************************" << endl;
+		cout << "请输入数字进行接下来操作：" << endl;
+		while (!(cin >> acttype))
+		{
+			cin.clear();              // 清除 fail 状态
+			cin.ignore(1024, '\n');   // 丢弃错误输入
+			cout << "输入无效，请重新输入数字：" << endl;
+		}
+		recallAction(acttype);
+	case 2:
+		system("cls");
+		cout << "******************************" << endl;
+		cout << "图书管理系统" << endl;
+		cout << "您选择了登录，请输入用户名与密码" << endl;
+		cout << "用户名" << endl;
+		cout << "密码" << endl;
+		cout << "版权@天天工作室" << endl;
+		cout << "******************************" << endl;
+		cout << "请输入数字进行接下来操作：" << endl;
+
+	default:
+		break;
+	}
+
 }
 void MainWindow::recallAction(int action)
 {
 	switch(action)
 	{ 
 	case 1:
+		returnfilepath();
+		load_user_data();
+		checkPassword();
 		break;
 	case 2:
 		break;
@@ -31,7 +60,7 @@ void MainWindow::recallAction(int action)
 int MainWindow::load_user_data()
 {
 	// Implement the logic to load user data here
-	std::ifstream file("data.txt");
+	std::ifstream file(file_path);
 	std::string line;
 	if (!file.is_open())
 	{
@@ -40,12 +69,11 @@ int MainWindow::load_user_data()
 	}
 	while (std::getline(file, line))
 	{
-		user_data data;
 		size_t pos = line.find("name:");
 		size_t start = pos + 5;
-		size_t end = line.find("pwd=");
+		size_t end = line.find("pwd:");
 		data.name = line.substr(start, end - start);
-		pos = line.find("pwd=");
+		pos = line.find("pwd:");
 		start = pos + 4;
 		data.password = line.substr(start);
 
@@ -63,4 +91,8 @@ string MainWindow::returnfilepath()
 {
 	getPwdpath();
 	return file_path;
+}
+bool MainWindow::checkPassword()
+{
+	
 }
