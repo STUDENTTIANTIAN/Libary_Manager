@@ -6,6 +6,7 @@ MainWindow::MainWindow()
 
 void MainWindow::show(int showid)
 {
+	string tmp_input[2];
 	switch (showid)
 	{
 	case 1:
@@ -23,18 +24,29 @@ void MainWindow::show(int showid)
 			cin.ignore(1024, '\n');   // 丢弃错误输入
 			cout << "输入无效，请重新输入数字：" << endl;
 		}
-		recallAction(acttype);
 	case 2:
 		system("cls");
 		cout << "******************************" << endl;
 		cout << "图书管理系统" << endl;
 		cout << "您选择了登录，请输入用户名与密码" << endl;
-		cout << "用户名" << endl;
-		cout << "密码" << endl;
+		cout << "用户名：" << endl;
+		cin >> tmp_input[0];
+		cout << "密码：" << endl;
+		cin >> tmp_input[0];
 		cout << "版权@天天工作室" << endl;
 		cout << "******************************" << endl;
 		cout << "请输入数字进行接下来操作：" << endl;
-
+		recallAction(1);
+	case 3:
+		system("cls");
+		cout << "1添加图书" << endl;
+		cout << "2图书列表 / 查找" << endl;
+		cout << "3借书" << endl;
+		cout << "4还书" << endl;
+		cout << "版权@天天工作室" << endl;
+		cout << "******************************" << endl;
+		cout << "请输入数字进行接下来操作：" << endl;
+		recallAction(1);
 	default:
 		break;
 	}
@@ -45,11 +57,14 @@ void MainWindow::recallAction(int action)
 	switch(action)
 	{ 
 	case 1:
+		bool isPasswordCorrect;
 		returnfilepath();
 		load_user_data();
-		checkPassword();
+		isPasswordCorrect=checkPassword();
+		
 		break;
 	case 2:
+
 		break;
 	default:
 		return ;
@@ -95,4 +110,8 @@ string MainWindow::returnfilepath()
 bool MainWindow::checkPassword()
 {
 	
+}
+void MainWindow::showMainwindow()
+{
+	show(3);
 }
