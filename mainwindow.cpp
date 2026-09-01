@@ -2,6 +2,7 @@
 #include <direct.h>
 MainWindow::MainWindow()
 {
+	
 }
 
 void MainWindow::show(int showid)
@@ -171,14 +172,3 @@ void MainWindow::showMainwindow()
 }
 
 //book相关
-string MainWindow::getBookfilepath()
-{
-	char buf[1024];
-	_getcwd(buf, 1024);
-	file_path = std::string(buf) + "\\book.txt";
-	return file_path;
-}
-void MainWindow::init_book()
-{
-
-}
