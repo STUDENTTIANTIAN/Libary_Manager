@@ -90,7 +90,7 @@ bool BookManger::search_book(int no, string name)
 	{
 		if ((book.book_info_array[i].book_name == temp_book_name)&& (book.book_info_array[i].book_no == temp_no))
 		{
-			return true;
+			return i;
 		}
 		else
 		{
@@ -108,6 +108,26 @@ bool BookManger::insert_book(int no, string name)
 	{
 		book.book_info_array[book.tail + 1].book_name = name;
 		book.book_info_array[book.tail + 1].book_no = no;
+		book.book_info_array[book.tail + 1].book_state = 0;
+		book.tail++;
+		return true;
+	}
+}
+bool BookManger::del_book(int i)
+{
+	if (book.capital == 0)
+	{
+		return false;
+	}
+	else
+	{
+		for(int j=i;j<book.capital;j++)
+		{ 
+			book.book_info_array[j].book_name = book.book_info_array[j+1].book_name;
+			book.book_info_array[j].book_no = book.book_info_array[j+1].book_no;
+			book.book_info_array[j].book_state = book.book_info_array[j+1].book_state;
+		}
+		book.tail--;
 		return true;
 	}
 }

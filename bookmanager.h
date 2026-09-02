@@ -13,6 +13,7 @@ public:
     bool add_book(int no,string name);
     bool search_book(int no, string name);
     bool insert_book(int no, string name);
+    bool del_book(int i);
 private:
     struct book_info {
         string book_name;
@@ -23,8 +24,8 @@ private:
     {
         int capital = 0;
         int maxsize = 1024;
-        int front;
-        int tail;
+        int front=-1;
+        int tail=-1;
         book_info* book_info_array = new book_info[maxsize];
     };
     static struct book_array book;
