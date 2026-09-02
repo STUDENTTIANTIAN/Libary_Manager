@@ -20,6 +20,7 @@ void BookManger::init_book(const string& path)
 	}
 	book.front = 0;
 	book.tail = 0;
+	int i = 1;
 	string line;
 	while (getline(file, line))
 	{
@@ -57,16 +58,56 @@ void BookManger::init_book(const string& path)
 			book.book_info_array[book.tail].book_name = name;
 			book.book_info_array[book.tail].book_state = state;
 			book.tail++;
+			book.capital = i;
+			i++;
 		}
 	}
 	file.close();
 
 }
-bool BookManger::add_book(int no, string name, int state)
+bool BookManger::add_book(int no, string name)
 {
-	
+	bool isHaving;
+	isHaving = search_book(no, name);
+	if (isHaving == true)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
 }
-bool BookManger::search_book(int no, string name, int state)
+bool BookManger::search_book(int no, string name)
 {
-	
+	int temp_no;
+	string temp_book_name;
+	if (book.capital <= 0)
+	{
+		return false;
+	}
+	for (int i = 0; i <= book.capital; i++)
+	{
+		if ((book.book_info_array[i].book_name == temp_book_name)&& (book.book_info_array[i].book_no == temp_no))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+bool BookManger::insert_book(int no, string name)
+{
+	if (book.capital == book.maxsize)
+	{
+		return false;
+	}
+	else
+	{
+		book.book_info_array[book.tail + 1].book_name = name;
+		book.book_info_array[book.tail + 1].book_no = no;
+		return true;
+	}
 }

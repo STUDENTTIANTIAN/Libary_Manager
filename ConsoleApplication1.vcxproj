@@ -123,11 +123,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bookmanager.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="event_handler.cpp" />
     <ClCompile Include="mainwindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bookmanager.h" />
     <ClInclude Include="event_handler.h" />
     <ClInclude Include="mainwindow.h" />
   </ItemGroup>

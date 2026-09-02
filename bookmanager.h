@@ -10,8 +10,9 @@ public:
     BookManger(const string& path);
     void init_book(const string& path);
     string getBookfilepath(const string& path);
-    bool add_book(int no,string name,int state);
-    bool search_book(int no, string name, int state);
+    bool add_book(int no,string name);
+    bool search_book(int no, string name);
+    bool insert_book(int no, string name);
 private:
     struct book_info {
         string book_name;

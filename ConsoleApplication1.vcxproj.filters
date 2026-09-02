@@ -24,12 +24,18 @@
     <ClCompile Include="event_handler.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="bookmanager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainwindow.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="event_handler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bookmanager.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
