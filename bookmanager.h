@@ -14,6 +14,9 @@ public:
     bool search_book(int no, string name);
     bool insert_book(int no, string name);
     bool del_book(int i);
+    struct book_info get_book_info(int i);
+    //图表显示
+	
 private:
     struct book_info {
         string book_name;

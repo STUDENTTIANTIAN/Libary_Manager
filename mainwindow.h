@@ -16,8 +16,7 @@ public:
     void showMainwindow();
     int getMapOperaton(int no);
 
-    //图书操作相关
-
+    void table_show();
 
 private:
     struct user_data {

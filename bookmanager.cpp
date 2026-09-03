@@ -75,6 +75,12 @@ bool BookManger::add_book(int no, string name)
 	}
 	else
 	{
+		if (book.capital == book.maxsize)
+		{
+			cout << "图书已经满了";
+			return false;
+		}
+		insert_book(no, name);
 		return true;
 	}
 }
