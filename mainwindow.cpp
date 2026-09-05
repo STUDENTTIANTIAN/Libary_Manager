@@ -1,5 +1,15 @@
 ﻿#include "mainwindow.h"
 #include <direct.h>
+#include "bookmanager.h"
+
+static std::string getProjectDir() {
+    std::string file = __FILE__;
+    size_t pos = file.find_last_of("\\/");
+    return file.substr(0, pos);
+}
+
+BookManger MainWindow::bookManager(getProjectDir());
+
 MainWindow::MainWindow()
 {
 	
@@ -50,7 +60,7 @@ void MainWindow::show(int showid)
 		cout << "请输入数字进行接下来操作：" << endl;
 		cin >> no;
 		recallAction(10+no, tmp_input);
-	case 4://添加图书功能
+	case 4://选择添加图书
 		system("cls");
 		cout << "1添加图书" << endl;
 		cout << "2图书列表 / 查找" << endl;
@@ -172,3 +182,7 @@ void MainWindow::showMainwindow()
 }
 
 //book相关
+void MainWindow::table_show()
+{
+
+}

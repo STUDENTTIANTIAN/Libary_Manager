@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <string>
 #include <fstream>
+#include "bookmanager.h"
 using namespace std;
 class MainWindow {
 public:
@@ -17,7 +18,7 @@ public:
     int getMapOperaton(int no);
 
     void table_show();
-
+	static BookManger bookManager;
 private:
     struct user_data {
         string name;
